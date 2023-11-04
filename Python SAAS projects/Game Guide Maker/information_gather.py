@@ -205,69 +205,6 @@ def save_prompts_to_file(prompts, book_title, chapter_title, chapter_number):
         for prompt in prompts:
             f.write(prompt + "\n")
 
-# def extract_information(text, book_title, chapter_title, chapter_number):
-#     doc = nlp(text)
-#     characters = []
-#     locations = []
-#     emotions = []
-#     objects = []
-    
-#     for ent in doc.ents:
-#         if ent.label_ == "PERSON":
-#             characters.append(ent.text)
-#         elif ent.label_ in ["LOC", "GPE"]:
-#             locations.append(ent.text)
-            
-#     for token in doc:
-#         if "obj" in token.dep_:
-#             objects.append(token.text)
-    
-#     sentences = [sent.text for sent in doc.sents]
-#     for sentence in sentences:
-#         result = sentiment_analyzer(sentence)[0]
-#         if result['label'] in ["POSITIVE", "NEGATIVE"]:
-#             emotions.append((sentence, result['label']))
-    
-#     # This is a very basic and rudimentary extraction, and it might not cover all cases.
-#     info = {
-#         "characters": list(set(characters)),
-#         "locations": list(set(locations)),
-#         "emotions": emotions,
-#         "objects": list(set(objects))
-#     }
-    
-#      # Create directories if they don't exist
-#     script_folder = os.path.dirname(os.path.abspath(__file__))
-#     base_path = os.path.join(script_folder, book_title, chapter_title)
-#     os.makedirs(base_path, exist_ok=True)
-    
-#     # Path for the file to save extracted information
-#     filename = os.path.join(base_path, f"extracted_info_chapter_{chapter_number}.txt")
-    
-#     # Save the extracted information to a file
-#     save_descriptions_to_file(info, filename)
-#     return info
-
-# def save_descriptions_to_file(info, file_path):
-#     with open(file_path, 'w', encoding='utf-8') as f:
-#         f.write("Characters:\n")
-#         for character in info["characters"]:
-#             f.write(f"- {character}\n")
-            
-#         f.write("\nLocations:\n")
-#         for location in info["locations"]:
-#             f.write(f"- {location}\n")
-        
-#         f.write("\nEmotions and Context:\n")
-#         for emotion in info["emotions"]:
-#             f.write(f"- {emotion[1]}: {emotion[0]}\n")
-            
-#         f.write("\nObjects:\n")
-#         for obj in info["objects"]:
-#             f.write(f"- {obj}\n")
-
-
-
 
 #EXECUTION
 
